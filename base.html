@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>Dynamic Content Loader</title>
+    <link id="pageStyle" rel="stylesheet" href="profile.css"> <!-- ملف CSS الافتراضي -->
+    <script>
+        function loadPage(page) {
+            // إخفاء جميع الصفحات
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(function(p) {
+                p.style.display = 'none';
+            });
+
+            // إظهار الصفحة المطلوبة
+            document.getElementById(page).style.display = 'block';
+
+            // تغيير ملف CSS
+            document.getElementById('pageStyle').setAttribute('href', page + '.css');
+        }
+
+        window.onload = function() {
+            loadPage('profile');  // تحميل الصفحة الرئيسية عند فتح الموقع
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="#" onclick="loadPage('profile')">Home</a></li>
+            <li><a href="#" onclick="loadPage('projects')">My Projects</a></li>
+            <li><a href="#" onclick="loadPage('skills')">Skills</a></li>
+            <li><a href="#" onclick="loadPage('certificate')">Certificate</a></li>
+        </ul>
+    </div>
+
+    <!-- Profile Page -->
+    <div id="profile" class="page">
+        <div class="section">
+            <h1>My Profile</h1>
+            <button id="aboutMeBtn">About Me..!!</button>
+            <div id="hiddenText" style="display: none;">
+              <p>
+                I am a passionate developer dedicated to creating impactful solutions. My journey in the tech world began with a curiosity for how things work and has grown into a deep commitment to mastering the art of coding.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Container with Cards -->
+          <div class="container">
+            <div class="card">
+              <div class="content">
+                <div class="img"><img src="picture\profile.PNG" alt="Profile Image"></div>
+                <div class="cardContent">
+                  <h3>Ramdane Chennib<br><span>Developer</span></h3>
+                </div>
+              </div>
+              <ul class="sci">
+                <li><a href="https://web.facebook.com/profile.php?id=100091796151368&locale=fr_FR"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.instagram.com/ramdane.chennib/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="https://web.telegram.org/k/"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+                <li><a href="https://github.com/ramdanechennib"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/ramdane-chennib-956418250/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+        
+            <!-- Description Section -->
+            <div class="description">
+              <h1>What This Means to Me: A Journey of Purpose and Innovation</h1>
+              <p>
+                This is where I believe technology can truly make a difference.
+                Its rapid evolution allows me to learn something new every day,
+                empowering me to contribute to making the world a better place,
+                one line of code at a time. Explore my portfolio to discover more
+                about my projects, skills, and the unique approaches I take to solve
+                problems in innovative ways.
+              </p>
+            </div>
+            
+            <div class="card">
+                <div class="content">
+                  <h3>Contact Me</h3>
+                  <form action="https://formspree.io/f/xgvwzpgj" method="POST">
+                    <div class="inputBox">
+                      <input type="email" name="email" required>
+                      <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                      <textarea name="message" required></textarea>
+                      <span>Message</span>
+                    </div>
+                    <div class="inputBox">
+                      <input type="text" name="name" required>
+                      <span>Name</span>
+                    </div>
+                    <button type="submit">Send Message</button>
+                  </form>
+                </div>
+            </div>
+              
+          
+        
+          <!-- JavaScript to Handle Button Click -->
+          <script>
+            document.getElementById("aboutMeBtn").addEventListener("click", function() {
+              var hiddenText = document.getElementById("hiddenText");
+              hiddenText.style.display = hiddenText.style.display === "none" ? "block" : "none";
+            });
+          </script>
+        </div>
+    </div>
+
+    <!-- My Projects Page -->
+    <div id="projects" class="page" style="display:none;">
+        <h1>My Projects</h1>
+        <div class="certificates-container">
+            <div class="card">
+                <div class="cardContent">
+                    <h3>Team Orienteering Problem with Time Windows (TOPTW) Solution</h3>
+                    <p>January 2024 – August 2024</p>
+                    <p>Developed a new solution for the Team Orienteering Problem with Time Windows (TOPTW) using ALNS in Python. Implemented optimization techniques that improved route planning efficiency by 20% and reduced scheduling errors by 15%. Analyzed and processed over 100,000 data points to enhance solution accuracy.</p>
+                </div>
+                <button onclick="window.location.href='project-details.html?project=toptw'">See Project</button>
+            </div>
+    
+            <div class="card">
+                <div class="cardContent">
+                    <h3>Stock and Pharmacy Management, Client-Server</h3>
+                    <p>January 2021 – June 2021</p>
+                    <p>Developed a comprehensive inventory and pharmacy management system using a client-server architecture. The system optimized stock control, order management, and client interaction for pharmacies, resulting in a 25% increase in operational efficiency. The project involved the use of SQL for database management and Java for developing both the client and server-side applications.</p>
+                </div>
+                <button onclick="window.location.href='project-details.html?project=pharmacy'">See Project</button>
+            </div>
+    
+            <div class="card">
+                <div class="cardContent">
+                    <h3>Genetic Algorithms Implementation</h3>
+                    <p>2022</p>
+                    <p>Applied genetic algorithms to solve complex optimization problems, improving solution efficiency by 25%. Utilized Python to code and test various strategies, achieving a 30% reduction in computational time compared to traditional methods. Developed and tested over 5 different genetic algorithm strategies to optimize performance.</p>
+                </div>
+                <button onclick="window.location.href='project-details.html?project=genetic-algorithms'">See Project</button>
+            </div>
+    
+            <div class="card">
+                <div class="cardContent">
+                    <h3>Warehouse Management System</h3>
+                    <p>2021, 2022, 2023</p>
+                    <p>Developed a warehouse management system using SQL Developer and Java, optimizing inventory management and order processing. Streamlined operations, resulting in a 15% increase in order processing speed and a 20% reduction in inventory discrepancies. Designed and implemented database structures and user interfaces, improving system usability and efficiency for over 50 warehouse employees.</p>
+                </div>
+                <button onclick="window.location.href='project-details.html?project=warehouse-management'">See Project</button>
+            </div>
+    
+            <div class="card">
+                <div class="cardContent">
+                    <h3>Mobile Application for E-learning Platform</h3>
+                    <p>Designed and developed a mobile application to support an e-learning platform, enabling students to access course materials and assessments on the go. Utilized Kotlin for Android development and integrated RESTful APIs to synchronize data with the platform's backend.</p>
+                </div>
+                <button onclick="window.location.href='project-details.html?project=elearning'">See Project</button>
+            </div>
+    
+            <div class="card">
+                <div class="cardContent">
+                    <h3>Game Development Using Pygame</h3>
+                    <p>Created a 2D platformer game using Pygame, focusing on gameplay mechanics, level design, and performance optimization. Successfully implemented features such as character movement, collision detection, and scoring systems.</p>
+                </div>
+                <button onclick="window.location.href='project-details.html?project=pygame-game'">See Project</button>
+            </div>
+        </div>
+    
+    </div>
+
+    <!-- Skills Page -->
+    <div id="skills" class="page" style="display:none;">
+        <h1>Skills</h1>
+        <div class="skills-container">
+            <div class="card">
+                <div class="content">
+                    <div class="img">
+                        <img src="picture\software-development-logo.png" alt="software_dev">
+                    </div>
+                    <div class="cardContent">
+                        <h3>Software Development</h3>
+                        <p>I have strong experience in programming and software development using multiple languages such as Java, Python, Kotlin, and C. I’ve worked on developing applications for mobile phones, desktops, and the web, showcasing my ability to handle various platforms and systems.</p>
+                    </div>
+                </div>
+            </div>
+      
+            <div class="card">
+                <div class="content">
+                    <div class="img">
+                        <img src="picture\database_management.png" alt="database_management">
+                    </div>
+                    <div class="cardContent">
+                        <h3>Database Management</h3>
+                        <p>I possess advanced skills in designing and optimizing databases using php,SQL and PLSQL. I have developed and managed complex databases for multiple projects, including warehouse and pharmacy management, which has led to improved operational efficiency and faster data processing.</p>
+                    </div>
+                </div>
+            </div>
+      
+            <div class="card">
+                <div class="content">
+                    <div class="img">
+                        <img src="picture\web_development.png" alt="web_dev">
+                    </div>
+                    <div class="cardContent">
+                        <h3>Web Development</h3>
+                        <p>I have experience in web development using technologies like HTML, CSS, JavaScript, XML, and JSON. I’ve worked on developing interactive and responsive web applications, demonstrating my ability to create outstanding user experiences.</p>
+                    </div>
+                </div>
+            </div>
+      
+            <div class="card">
+                <div class="content">
+                    <div class="img">
+                        <img src="picture\framework.png" alt="frameworks_tools">
+                    </div>
+                    <div class="cardContent">
+                        <h3>Frameworks and Tools</h3>
+                        <p>I have experience using various frameworks and tools such as Laravel, Flutter, Unity, Electron, JavaFX, Pygame, and Pandas. These skills enable me to develop efficient and rapid software solutions across different environments and fields.</p>
+                    </div>
+                </div>
+            </div>
+      
+            <div class="card">
+                <div class="content">
+                    <div class="img">
+                        <img src="picture\uml.png" alt="uml_modeling">
+                    </div>
+                    <div class="cardContent">
+                        <h3>Modeling and Analysis using UML</h3>
+                        <p>I have the ability to analyze and design systems using UML techniques like Class Diagrams, Use Case Diagrams, Sequence Diagrams, and Activity Diagrams. This allows me to plan and execute complex software projects in a structured manner.</p>
+                    </div>
+                </div>
+            </div>
+      
+            <div class="card">
+                <div class="content">
+                    <div class="img">
+                        <img src="picture\problem_solving.jpg" alt="problem_solving">
+                    </div>
+                    <div class="cardContent">
+                        <h3>Problem-Solving</h3>
+                        <p>I have strong skills in analyzing and solving complex technical problems. I have applied techniques such as ALNS and genetic algorithms to solve optimization problems, resulting in significant improvements in solution efficiency.</p>
+                    </div>
+                </div>
+            </div>
+      
+            <div class="card">
+                <div class="content">
+                    <div class="img">
+                        <img src="picture\teamwork_management.png" alt="project_management">
+                    </div>
+                    <div class="cardContent">
+                        <h3>Project Management and Teamwork</h3>
+                        <p>I have experience in version control using Git, and I’m skilled in teamwork, which contributes to the successful execution of software projects and ensures an efficient workflow.</p>
+                    </div>
+                </div>
+            </div>
+      
+            <div class="card">
+                <div class="content">
+                    <div class="img">
+                        <img src="picture\adaptation.jpg" alt="adaptability">
+                    </div>
+                    <div class="cardContent">
+                        <h3>Quick Adaptation</h3>
+                        <p>I possess the ability to quickly adapt to new technologies and tools, making me well-suited to work in dynamic technological environments and keep up with continuous developments in the IT field.</p>
+                    </div>
+                </div>
+            </div>
+      
+            <div class="card">
+                <div class="content">
+                    <div class="img">
+                        <img src="picture\data_mining.png" alt="data_science">
+                    </div>
+                    <div class="cardContent">
+                        <h3>Data Mining and Data Science</h3>
+                        <p>I have experience in data mining and data science using tools like Tanagra and Excel. I’ve applied classification methods such as K-means and other techniques to extract patterns and insights from data. These skills have enabled me to effectively analyze data and use the results for strategic decision-making and performance improvement.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                 <div class="content">
+                    <div class="img">
+                      <img src="picture\language.jpg" alt="Languages">
+                    </div>
+                    <div class="cardContent">
+                      <h3>Multiple Languages</h3>
+                      <p>
+                          I speak three languages: English, Arabic, and French. These language skills help me work well with different teams and understand technical documents in various languages. This ability makes me effective in diverse work environments and supports successful international projects.
+                      </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+              <div class="content">
+                  <div class="img">
+                      <img src="picture\algo.png" alt="Reading">
+                  </div>
+                  <div class="cardContent">
+                      <h3>Reading and Writing Algorithms</h3>
+                      <p>I can easily read and write algorithms. This skill helps me break down complex problems and create clear, actionable steps. I use my programming knowledge to design algorithms that work efficiently and meet the needs of high-performance applications.
+                          </p>
+                      </div>
+              </div>
+          </div>      <div class="card">
+              <div class="content">
+                  <div class="img">
+                      <img src="picture\Cisco-Security.jpg" alt="Security">
+                  </div>
+                  <div class="cardContent">
+                      <h3>Network Setup and Configuration</h3>
+                      <p>
+                          I have experience setting up networks by connecting wires with modems, routers, switches, and configuring them using Cisco Packet Tracer. I know how to configure routes and devices so that the network runs smoothly. My skills include creating local networks and setting up more complex configurations, which helps reduce downtime and improve connectivity.                </p></div>
+              </div>
+          </div>     
+        </div>
+    </div>
+
+    <!-- Certificate Page -->
+    <div id="certificate" class="page" style="display:none;">
+        <h1>Certificate</h1>
+        <div class="certificates-container">
+        <div class="card">
+            <div class="img">
+                <img src="picture\certificate javascript -1.png" alt="JavaScript, Bootstrap, \& PHP - Certification for Beginners">
+            </div>
+            <div class="cardContent">
+                <h3>JavaScript, Bootstrap, & PHP - Certification for Beginners</h3>
+                <p>Udemy</p>
+                <p class="date">August 2024</p>
+            </div>
+        </div>
+  
+        <div class="card">
+            <div class="img">
+                <img src="picture\Python Programming And Python Web Framework Flask-1.png" alt="Python And Flask Framework Complete Course">
+            </div>
+            <div class="cardContent">
+                <h3>Python And Flask Framework Complete Course</h3>
+                <p>Udemy</p>
+                <p class="date">August 2024</p>
+            </div>
+        </div>
+        <div class="card">
+          <div class="img">
+              <img src="picture\kotlin_certificate.jpg" alt="Kotlin Certificate">
+          </div>
+          <div class="cardContent">
+              <h3>Kotlin Course</h3>
+              <p>SoloLearn</p>
+              <p class="date">March 2022</p>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
