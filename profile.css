@@ -1,0 +1,320 @@
+/* Base Styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  appearance: none;
+  border-style: none;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, span, p {
+  font-family: "Montserrat", "Roboto", sans-serif;
+}
+
+/* Body and Background */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #47289d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  background: #020202;
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #020202;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 1px;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #e91e63;
+}
+
+.cardContent h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5px; /* Control space from the top */
+}
+
+.touch-here {
+  font-size: 12px;
+  margin-bottom: 10px; /* Space between text and card content */
+}
+
+.back-btn {
+  background-color: #ffffff;
+  color: #47289d;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #e91e63;
+  color: #ffffff;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* توازن بين البطاقات والنص */
+  gap: 20px; /* التباعد بين العناصر */
+}
+/* Container */
+.container {
+  width: 100%;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: flex-start;
+  gap: 20px; /* Space between card and description */
+  margin-top: 50px;
+}
+
+.card {
+  width: 300px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(40px);
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  box-shadow: 0px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
+.card .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.5;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.card .content .img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 10px solid rgba(0, 0, 0, 0.25);
+}
+
+.card .content .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .content .cardContent h3 {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px 0 10px;
+  line-height: 1.1em;
+}
+
+.card .content .cardContent h3 span {
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: initial;
+}
+
+.sci {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.sci li {
+  transform: translateY(40px);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.sci li a {
+  font-size: 24px;
+}
+
+.card:hover .content {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+
+.card:hover .sci li {
+  transform: translateY(0px);
+  opacity: 1;
+}
+.section {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+}
+
+/* Description Section */
+.description {
+  width: calc(100% - 30px); /* Adjust to account for card width and gap */
+  padding: 20px;
+  border-radius: 16px;
+  color: #fff;
+  text-align: left;
+  margin-left: auto; /* Moves description to the right */
+  margin-right: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* خلفية شفافة لتحسين التباين */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* ظل لإضافة بُعد */
+}
+.titre {
+  width: calc(100% - 340px); /* Adjust to account for card width and gap */
+  padding: 20px;
+  background-color: transparent;
+  border-radius: 16px;
+  color: #fff;
+  text-align: left;
+  margin-left: 100px; /* Moves description to the right */
+  margin-right: auto;
+  
+}
+.description h1 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.titre h1 {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.description p {
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Button with New Accent Color */
+#aboutMeBtn {
+  background-color: transparent;
+  color: #FFA500;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  animation: glow 1.5s infinite;
+  transition: 0.3s;
+}
+@keyframes glow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.card .content {
+  text-align: center;
+  padding: 20px;
+}
+
+.inputBox {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.inputBox input,
+.inputBox textarea {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  color: #fff;
+  border: 1px solid #fff;
+  outline: none;
+  resize: none;
+}
+
+.inputBox span {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 10px;
+  pointer-events: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span,
+.inputBox textarea:focus ~ span,
+.inputBox textarea:valid ~ span {
+  transform: translateY(-20px);
+  color: #e91e63;
+}
+
+button {
+  background-color: #47289d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #e91e63;
+}
